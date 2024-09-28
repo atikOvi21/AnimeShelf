@@ -1,0 +1,70 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp page greets you!!</title>
+  </head>
+  <body>
+    <form action="/app/enter" method="post" onsubmit="return true">
+      <label for="name" id="name"> Name :</label> <br />
+      <input type="text" id="name" name="name" placeholder="Name" /><br />
+
+      <label for="email" id="email">Email :</label><br />
+      <input
+        type="email"
+        id="mail"
+        name="mail"
+        placeholder="xyz@gmail.com"
+      /><br />
+
+      <label for="password" id="password"
+        >Password (Atleast 9 characters and include 1uppercase letter and 1
+        number ) :</label
+      ><br />
+      <!-- <input type="password" minlength="3" /> -->
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        pattern="^(?=.*[A-Za-z0-9]).{9,}$"
+      /><br />
+
+      <Label for="password2" id="password2">Confirm Password:</Label><br />
+      <input
+        type="password"
+        id="password2"
+        name="password2"
+        required
+      /><br /><br />
+      <br />
+
+      <label for="animeList" id="animeList">Favourite Anime List:</label><br />
+      <input
+        type="text"
+        name="animeList"
+        id="animeList"
+        placeholder="Anime1"
+      /><br />
+
+      <input
+        type="text"
+        name="animeList2"
+        id="animeList"
+        placeholder="Anime2"
+      /><br />
+      <span id="message" class="error"></span><br /><br />
+      <!--Submit now-->
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      const password = document.getElementById("password");
+      const password2 = document.getElementById("password2");
+
+      password.addEventListener("input", () => {
+        password2.setAttribute("pattern", password.value);
+      });
+    </script>
+  </body>
+</html>
