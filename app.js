@@ -10,7 +10,6 @@ app.use(express.static(path.join(__dirname,'View')));
 
 
 
-
 // request handling starts
 app.get("/app",(req,res)=>{
     res.send("Hello");
@@ -30,3 +29,6 @@ app.post("/app/enter",(req,res)=>{
 app.listen(3000,(req,res)=>{
     console.log("server is listening at 3000 port!");
 });
+
+
+//@Shahriar1

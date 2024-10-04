@@ -21,13 +21,14 @@
         >Password (Atleast 9 characters and include 1uppercase letter and 1
         number ) :</label
       ><br />
-      <!-- <input type="password" minlength="3" /> -->
+
       <input
         type="password"
         id="password"
         name="password"
+        minlength="8"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{9,}"
         required
-        pattern="^(?=.*[A-Za-z0-9]).{9,}$"
       /><br />
 
       <Label for="password2" id="password2">Confirm Password:</Label><br />
@@ -35,6 +36,7 @@
         type="password"
         id="password2"
         name="password2"
+        onchange="onChange();"
         required
       /><br /><br />
       <br />
@@ -53,18 +55,29 @@
         id="animeList"
         placeholder="Anime2"
       /><br />
-      <span id="message" class="error"></span><br /><br />
+      <span id="message"></span><br /><br />
+
       <!--Submit now-->
       <button type="submit">Submit</button>
     </form>
 
+    
+    
+    
+    
+    <!-- password validation checkings below -->
     <script>
-      const password = document.getElementById("password");
-      const password2 = document.getElementById("password2");
-
-      password.addEventListener("input", () => {
-        password2.setAttribute("pattern", password.value);
-      });
+      function onChange() {
+        const password = document.querySelector("input[name=password]");
+        const confirm = document.querySelector("input[name=password2]");
+        if (confirm.value === password.value) {
+          confirm.setCustomValidity("");
+        } else {
+          confirm.setCustomValidity("Passwords do not match");
+        }
+      }
     </script>
+
+
   </body>
 </html>
